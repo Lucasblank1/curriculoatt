@@ -249,6 +249,34 @@
             line-height: 1.8;
         }
 
+        /* Certification Download Button */
+        .cert-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #667eea;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid #667eea;
+        }
+
+        .cert-download-btn:hover {
+            background: #5568d3;
+            border-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .cert-download-btn i {
+            font-size: 1.1em;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -303,7 +331,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img class="profile-image" src="perfil.jpg" alt="Lucas Da Cruz Blank" onerror="this.style.display='none'">
+            <img class="profile-image" src="selfie.jpeg" alt="Lucas Da Cruz Blank" onerror="this.style.display='none'">
             <h1>Lucas Da Cruz Blank</h1>
             <p class="subtitle">Desenvolvedor em Formação | Análise e Desenvolvimento de Sistemas</p>
             <div class="contact-info">
@@ -423,6 +451,62 @@
                     <p class="description">
                         Formação técnica integrada ao ensino médio, com foco em desenvolvimento de competências técnicas e profissionais.
                     </p>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-certificate"></i>
+                    Certificações
+                </h2>
+                <div class="timeline-item">
+                    <h3>Git/Github</h3>
+                    <p class="company">Curso em Vídeo</p>
+                    <p class="period">Concluído em 10/2024</p>
+                    <p class="description">
+                        Conhecimentos básicos sobre controle de versão utilizando Git e hospedagem de repositórios no GitHub.
+                    </p>
+                    <a href="certificados/Git-Github.pdf" target="_blank" class="cert-download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Baixar Certificado
+                    </a>
+                </div>
+                <div class="timeline-item">
+                    <h3>LGPD</h3>
+                    <p class="company">Fundação Bradesco</p>
+                    <p class="period">Concluído em 08/2024</p>
+                    <p class="description">
+                        Conhecimentos básicos sobre a Lei Geral de Proteção de Dados (LGPD) e suas implicações para empresas e indivíduos.
+                    </p>
+                    <a href="certificados/Lgpd.pdf" target="_blank" class="cert-download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Baixar Certificado
+                    </a>
+                </div>
+                  <div class="timeline-item">
+                    <h3>JavaScript básico</h3>
+                    <p class="company">Curso em vídeo</p>
+                    <p class="period">Concluído em 11/2024</p>
+                    <p class="description">
+                       Noções básicas de JavaScript, incluindo sintaxe, estruturas de controle, funções e manipulação do DOM.
+                    </p>
+                    <a href="certificados/JavaScript.pdf" target="_blank" class="cert-download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Baixar Certificado
+                    </a>
+                </div>
+                   <div class="timeline-item">
+                    <h3>Java POO</h3>
+                    <p class="company">Curso em vídeo</p>
+                    <p class="period">Concluído em 09/2025</p>
+                    <p class="description">
+                        Programação Orientada a Objetos (POO) em Java, incluindo classes, objetos, herança, polimorfismo e encapsulamento.
+                    </p>
+                    <a href="certificados/JavaPOO.pdf" target="_blank" class="cert-download-btn" download>
+                        <i class="fas fa-download"></i>
+                        Baixar Certificado
+                    </a>
                 </div>
             </div>
 
