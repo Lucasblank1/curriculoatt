@@ -1,67 +1,449 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>Currículo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Da Cruz Blank - Currículo Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F0F8FF;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-
-        #header {
-            background-color: #2F4F4F;
-            color: #fff;
-            text-align: center;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
+            line-height: 1.6;
         }
 
-
-        #profile-image {
-            max-width: 200px;
-            border-radius: 50%;
-            display: block;
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: #fff;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
 
-        #main-content {
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-item i {
+            font-size: 1.2em;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.7;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        /* About Section */
+        .about-text {
+            color: #4a5568;
+            font-size: 1.05em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f7fafc;
             padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: transform 0.2s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item h3 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .period {
+            color: #718096;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .timeline-item .description {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #2d3748;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .github-link:hover {
+            background: #1a202c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .github-link i {
+            font-size: 1.3em;
+        }
+
+        .projects-intro {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .header {
+                background: #2d3748;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Currículo</h1>
-    </div>
-    <div id="main-content">
-        <img id="profile-image" src="perfil.jpg" alt="Foto de Perfil">
-        <h2>Dados Pessoais</h2>
-        <p>Nome: Lucas Da Cruz Blank</p>
-        <p>Endereço: Rua Manoel Carlos Daussen,157 (Caminho Novo). Palhoça-Sc </p>
-        <p>E-mail: lucasblank1@outlook.com</p>
-        <p>Telefone: (53) 98118-4611</p>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img class="profile-image" src="perfil.jpg" alt="Lucas Da Cruz Blank" onerror="this.style.display='none'">
+            <h1>Lucas Da Cruz Blank</h1>
+            <p class="subtitle">Desenvolvedor em Formação | Análise e Desenvolvimento de Sistemas</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:lucasblank1@outlook.com">lucasblank1@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(53) 98118-4611</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Palhoça, SC</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/lucasblank1" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
 
+        <!-- Main Content -->
+        <div class="content">
+            <!-- About -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user"></i>
+                    Sobre Mim
+                </h2>
+                <p class="about-text">
+                    Estudante de Análise e Desenvolvimento de Sistemas (4ª fase) com sólida experiência profissional em áreas que exigem precisão, organização e trabalho em equipe. Busco transição de carreira para a área de tecnologia, aplicando habilidades desenvolvidas ao longo da minha trajetória profissional. Apaixonado por desenvolvimento de software, com projetos práticos desenvolvidos durante a graduação utilizando diversas tecnologias modernas.
+                </p>
+            </div>
 
-        <h2>Experiência Profissional</h2>
-        <p>Cargo: Sushiman</p>
-        <p>Empresa: Restaurante Casa açoriana</p>
-        <p>Descrição: Escolha de alimentos, manuseio de frutos do mar, preparação de molhos e holls.<br><br></p>
-        
-        <p>Cargo: Sushiman</p>
-        <p>Empresa: Restaurante Gourmet Sushi</p>
-        <p>Descrição: Escolha de alimentos, manuseio de frutos do mar, preparação de molhos e holls.</p>
+            <!-- Skills -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Habilidades Técnicas
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-laptop-code"></i> Linguagens de Programação</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Frameworks & Bibliotecas</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Banco de Dados</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                                                  </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-wrench"></i> Ferramentas & Outros</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <h2>Formação Acadêmica</h2>
-        <p>Curso: Tecnólogo em Análise e desenvolvimento de sistemas, 1º fase.</p>
-        <p>Instituição: Faculdade municipal de Palhoça</p>
-        <p>Ano de Conclusão: 2027 (cursando)<br><br></p>
-        
-        <p>Curso:Ensino Médio Politécnico</p>
-        <p>Instituição: E.T.E Professora Sylvia Mello</p>
-        <p>Ano de Conclusão: 2015</p>
+            <!-- Projects -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    Projetos
+                </h2>
+                <p class="projects-intro">
+                    Durante o curso de Análise e Desenvolvimento de Sistemas, desenvolvi diversos projetos práticos aplicando diferentes tecnologias e conceitos de programação. Estes projetos abrangem desde aplicações web full-stack até sistemas de gerenciamento e APIs RESTful.
+                </p>
+                <a href="https://github.com/lucasblank1" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i>
+                    Ver Projetos no GitHub
+                </a>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Formação Acadêmica
+                </h2>
+                <div class="timeline-item">
+                    <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                    <p class="company">Faculdade Municipal de Palhoça</p>
+                    <p class="period">4ª Fase - Previsão de Conclusão: 2027</p>
+                    <p class="description">
+                        Curso focado em desenvolvimento de software, engenharia de software, banco de dados, programação orientada a objetos, estrutura de dados, desenvolvimento web e mobile. Participação ativa em projetos práticos utilizando metodologias ágeis.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Ensino Médio Politécnico</h3>
+                    <p class="company">E.T.E Professora Sylvia Mello</p>
+                    <p class="period">Concluído em 2015</p>
+                    <p class="description">
+                        Formação técnica integrada ao ensino médio, com foco em desenvolvimento de competências técnicas e profissionais.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiência Profissional
+                </h2>
+                <div class="timeline-item">
+                    <h3>Sushiman</h3>
+                    <p class="company">Restaurante Casa Açoriana</p>
+                    <p class="description">
+                        Responsável pela seleção criteriosa de ingredientes, manuseio especializado de frutos do mar, preparação de molhos tradicionais e montagem de holls. Desenvolveu habilidades de organização, trabalho sob pressão, atenção aos detalhes e trabalho em equipe.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Sushiman</h3>
+                    <p class="company">Restaurante Gourmet Sushi</p>
+                    <p class="description">
+                        Atuação na seleção de alimentos de qualidade, manuseio técnico de frutos do mar, preparação de molhos especiais e montagem artística de holls. Experiência em ambiente de alta demanda, aprimorando habilidades de gestão de tempo e qualidade.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
